@@ -144,7 +144,7 @@ func resourceBgpSession() *schema.Resource {
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"pre_nat_sources": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Optional:    true,
 							Description: "If using NAT overload, this is the prefixes from the cloud that you want to associate with the NAT pool.\n\n\tExample: 10.0.0.0/24",
 							Elem: &schema.Schema{
@@ -153,7 +153,7 @@ func resourceBgpSession() *schema.Resource {
 							},
 						},
 						"pool_prefixes": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Optional:    true,
 							Description: "If using NAT overload, all prefixes that are NATed on this connection will be translated to the pool prefix address.\n\n\tExample: 10.0.0.0/32",
 							Elem: &schema.Schema{
